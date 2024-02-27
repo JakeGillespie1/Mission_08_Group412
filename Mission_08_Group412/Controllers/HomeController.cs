@@ -14,12 +14,20 @@ namespace Mission_08_Group412.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(ToDoList TDL)
+        public IActionResult Index()
         {
-           return View(TDL);
+            var ToDoListInfo = _mission08Repository.ToDoLists;
+
+            return View(ToDoListInfo);
         }
 
-        
+
+        [HttpGet]
+        public IActionResult AddTask()
+        {
+            return View(new ToDoList());
+        }
+
 
 
 
