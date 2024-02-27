@@ -13,9 +13,19 @@ namespace Mission_08_Group412.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
+
+        
+
+
+
+
+
+
+
     }
 }
