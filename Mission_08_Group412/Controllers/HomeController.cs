@@ -6,17 +6,17 @@ namespace Mission_08_Group412.Controllers
 {
     public class HomeController : Controller
     {
-        private IMission08Repository _mission08Repository;
+        private IMission08Repository _repo;
 
         public HomeController(IMission08Repository temp) 
         { 
-            _mission08Repository = temp;
+            _repo = temp;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            var ToDoListInfo = _mission08Repository.ToDoLists;
+            var ToDoListInfo = _repo.ToDoLists;
 
             return View(ToDoListInfo);
         }

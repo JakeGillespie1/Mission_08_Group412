@@ -2,19 +2,19 @@
 {
     public class EFMission08Repository : IMission08Repository
     {
-        private Mission08Context context;
+        private Mission08Context _context;
 
         public EFMission08Repository(Mission08Context temp)
         {
-            context = temp;
+            _context = temp;
         }
 
-        public List<ToDoList> ToDoLists => context.ToDoLists.ToList();
+        public List<ToDoList> ToDoLists => _context.ToDoLists.ToList();
 
         public void AddToList(ToDoList toDoList) 
         { 
-            context.Add(toDoList);
-            context.SaveChanges();
+            _context.Add(toDoList);
+            _context.SaveChanges();
         }
     }
 }
