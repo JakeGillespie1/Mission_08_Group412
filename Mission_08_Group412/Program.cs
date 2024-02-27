@@ -11,6 +11,9 @@ builder.Services.AddDbContext<Mission08Context>(options =>
     options.UseSqlite(builder.Configuration["ConnectionStrings:Mission08Connection"]);
 });
 
+//Give each request an instance of EFMission08Repository
+builder.Services.AddScoped<IMission08Repository, EFMission08Repository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

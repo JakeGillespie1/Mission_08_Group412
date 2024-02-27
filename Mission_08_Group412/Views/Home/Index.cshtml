@@ -1,8 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+@model List<ToDoList>
 <!--Quadrant will go here on the index page-->
+@foreach (var listitem in Model)
+{
 <div>
-    Quadrant goes here!
+    Quadrants go here!
+    @listitem.TaskName
+    @listitem.DueDate
+    @listitem.Completed
 </div>
+}

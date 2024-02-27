@@ -6,19 +6,17 @@ namespace Mission_08_Group412.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private IMission08Repository _mission08Repository;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
+        public HomeController(IMission08Repository temp) 
+        { 
+            _mission08Repository = temp;
         }
 
-        private HomeController()
-
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(ToDoList TDL)
         {
-            return View();
+           return View(TDL);
         }
 
         
