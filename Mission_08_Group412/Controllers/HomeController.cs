@@ -13,6 +13,8 @@ namespace Mission_08_Group412.Controllers
             _logger = logger;
         }
 
+        private HomeController()
+
         [HttpGet]
         public IActionResult Index()
         {
