@@ -53,11 +53,19 @@ namespace Mission_08_Group412.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var toDoItemToDelete = _repo.GetItem(id);
 
+            return View("DeleteTask", toDoItemToDelete);
+        }
 
-
-
-
-
+        [HttpPost]
+        public IActionResult Delete(ToDoList toDoItem) 
+        {
+            _repo.DeleteToDoItem(toDoItem);
+            return RedirectToAction("Index");
+        }
     }
 }

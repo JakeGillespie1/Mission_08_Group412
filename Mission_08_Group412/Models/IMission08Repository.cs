@@ -9,5 +9,7 @@
         public void EditToDoList(ToDoList toDoListItem);
 
         public ToDoList GetItem(int id);
+
+        public void DeleteToDoItem(ToDoList toDoItem);
     }
 }

@@ -30,5 +30,11 @@
 
             return itemToEdit;
         }
+
+        public void DeleteToDoItem(ToDoList toDoItem)
+        {
+            _context.ToDoLists.Remove(toDoItem);
+            _context.SaveChanges();
+        }
     }
 }
