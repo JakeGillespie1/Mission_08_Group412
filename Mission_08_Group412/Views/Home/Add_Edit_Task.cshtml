@@ -9,16 +9,17 @@
 <div class="form-box">
     <div class="form-container">
 <form method="post">
+    <input type="hidden" asp-for="TaskId" />
     <label asp-for="TaskName">Task Name:</label>
     <input asp-for="TaskName" />
     <br />
     <label asp-for="DueDate">Task Due Date:</label>
     <input asp-for="DueDate" />
     <br />
-    <label asp-for="QuadrantNumber">Team ID:</label>
+    <label asp-for="QuadrantNumber">Quadrant Number:</label>
     <input asp-for="QuadrantNumber" />
     <br />
-    <label asp-for="CategoryId">Team ID:</label>
+    <label asp-for="CategoryId">Category:</label>
     <input asp-for="CategoryId" />
     <br />
     <label asp-for="Completed">Completed:</label>

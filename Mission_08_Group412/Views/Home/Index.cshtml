@@ -9,5 +9,7 @@
     Quadrants go here!
     @listitem.TaskName;
     @listitem.DueDate;
+    <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@listitem.TaskId">Edit</a>
+    <a class="btn btn-warning" asp-controller="Home" asp-action="Delete" asp-route-id="@listitem.TaskId">Delete</a>
 </div>
 }

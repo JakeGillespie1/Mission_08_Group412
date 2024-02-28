@@ -11,10 +11,24 @@
 
         public List<ToDoList> ToDoLists => _context.ToDoLists.ToList();
 
-        public void AddToList(ToDoList toDoList)
+        public void AddToList(ToDoList toDoListItem)
         {
-            _context.Add(toDoList);
+            _context.Add(toDoListItem);
             _context.SaveChanges();
+        }
+
+        public void EditToDoList(ToDoList toDoListItem)
+        {
+            _context.Update(toDoListItem);
+            _context.SaveChanges();
+        }
+
+        public ToDoList GetItem(int id) 
+        {
+            var itemToEdit = _context.ToDoLists
+                .Single(x => x.TaskId == id);
+
+            return itemToEdit;
         }
     }
 }

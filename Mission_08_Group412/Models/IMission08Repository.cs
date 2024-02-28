@@ -4,6 +4,10 @@
     {
         List<ToDoList> ToDoLists { get; }
 
-        public void AddToList(ToDoList toDoList);
+        public void AddToList(ToDoList toDoListItem);
+
+        public void EditToDoList(ToDoList toDoListItem);
+
+        public ToDoList GetItem(int id);
     }
 }
