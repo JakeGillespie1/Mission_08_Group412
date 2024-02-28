@@ -11,5 +11,9 @@
         public ToDoList GetItem(int id);
 
         public void DeleteToDoItem(ToDoList toDoItem);
+
+        public List<ToDoList> GetItems_Categories();
+
+        public List<Category> GetCategories();
     }
 }
