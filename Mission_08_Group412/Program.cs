@@ -1,7 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using Mission_08_Group412.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<Mission08Context>(options =>
+{
+    options.UseSqlite(builder.Configuration["Connection Strings:Mission08Connection"]);
+});
+
+//Give each request an instance of EFMission08Repository
+builder.Services.AddScoped<IMission08Repository, EFMission08Repository>();
 
 var app = builder.Build();
 

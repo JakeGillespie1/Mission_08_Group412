@@ -6,27 +6,34 @@ namespace Mission_08_Group412.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private IMission08Repository _repo;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
+        public HomeController(IMission08Repository temp) 
+        { 
+            _repo = temp;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var ToDoListInfo = _repo.ToDoLists;
+
+            return View(ToDoListInfo);
         }
 
-        public IActionResult Privacy()
+
+        [HttpGet]
+        public IActionResult AddTask()
         {
-            return View();
+            return View(new ToDoList());
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+
+
+
+
+
+
+
     }
 }
