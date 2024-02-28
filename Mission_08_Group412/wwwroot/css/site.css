@@ -1,3 +1,177 @@
+@font-face {
+    font-family: 'shortly_cometrue_demo';
+    src: url('../fonts/shortly_cometrue_demo.otf') format('opentype');
+}
+@font-face {
+    font-family: 'shortly_cometrue_demo_i';
+    src: url('../fonts/shortly_cometrue_demo_i.otf') format('opentype');
+}
+@font-face {
+    font-family: 'montserrat-regular';
+    src: url('../fonts/static/montserrat-regular.ttf') format('truetype');
+}
+:root {
+    --color-royal: #334EAC;     /*fun title font color, deep blue*/
+    --color-moon: #F7F2EB;      /*background color probably, whitish*/
+    --color-china: #7096D1;     /*light blue*/
+    --color-pear: #F2F0DE;      /*green*/
+    --color-midnight: #081F5C;  /*darkest blue*/
+    --color-dawn: #D0E3FF;      /*a lighter blue*/
+    --color-jicama: #FFF9F0;    /*almost white*/
+    --color-porcelain: #EDF1F6; /*lightest blue*/
+    --color-sky: #BAD6EB;       /*medium light blue*/
+}
+
+/* how to use the colors: */
+.element {
+    background-color: var(--color-royal);
+}
+
+.another-element {
+    color: var(--color-moon);
+}
+
+
+/* nav bar css*/
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.bg {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: url(mountains.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+.nav {
+    height: 3.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-royal);
+}
+
+.nav__logo {
+    font-size: 2.0rem;
+    font-family: 'shortly_cometrue_demo';
+    margin: auto 1rem;
+}
+
+.nav__menu ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+    .nav__menu ul li {
+        list-style: none;
+    }
+
+        .nav__menu ul li a {
+            text-decoration: none;
+            color: var(--color-royal);
+            padding: 1rem;
+            display: block;
+            font-family: 'montserrat-regular';
+            font-size: 10px;
+        }
+
+.nav__menu li:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.nav__hamburger {
+    width: 1.875rem;
+    height: 1.313rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.nav__hamburger__line {
+    height: 0.188rem;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 0.625rem;
+    transition: all ease-in-out 0.2s;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 550px) {
+    .nav__hamburger {
+        display: flex;
+    }
+
+    .nav__menu {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.2);
+        top: -10rem;
+        width: 100%;
+        transition: all ease-in-out 0.4s;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav__menu ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 3rem 0 0.6rem;
+    }
+
+        .nav__menu ul li {
+            text-align: center;
+        }
+
+            .nav__menu ul li a {
+                padding: 0.5rem;
+            }
+
+    .nav__menu {
+        z-index: -1;
+    }
+
+        .nav__menu.active {
+            top: 0;
+        }
+
+    .nav__hamburger.active :nth-child(1) {
+        transform: rotate(45deg) translate(0.45rem, 0.1875rem);
+    }
+
+    .nav__hamburger.active :nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav__hamburger.active :nth-child(3) {
+        transform: rotate(-45deg) translate(0.45rem, -0.1875rem);
+    }
+}
+
+
+
+
+
+/*
+
+    PREMADE CSS. ABOVE ARE THE THINGS I HAVE MADE
+
 html {
   font-size: 14px;
 }
@@ -19,4 +193,4 @@ html {
 
 body {
   margin-bottom: 60px;
-}
+}*/
