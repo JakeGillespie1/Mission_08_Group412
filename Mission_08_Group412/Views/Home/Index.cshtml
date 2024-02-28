@@ -98,13 +98,3 @@
         </div>
     </div>
 </div>
-@foreach (var listitem in Model)
-{
-<div>
-    @listitem.TaskName;
-    @listitem.DueDate;
-    @listitem.Category.CategoryName
-    <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@listitem.TaskId">Edit</a>
-    <a class="btn btn-warning" asp-controller="Home" asp-action="Delete" asp-route-id="@listitem.TaskId">Delete</a>
-</div>
-}
