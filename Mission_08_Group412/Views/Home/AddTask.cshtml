@@ -5,6 +5,9 @@
 }
 @model ToDoList
 <!--Add task form goes below-->
+
+<div class="form-box">
+    <div class="form-container">
 <form method="post">
     <label asp-for="TaskName">Task Name:</label>
     <input asp-for="TaskName" />
@@ -23,3 +26,5 @@
     <br />
     <button type="submit">Submit</button>
 </form>
+</div>
+</div>
