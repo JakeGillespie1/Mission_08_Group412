@@ -3,8 +3,12 @@
 *@
 @{
 }
-
+@model ToDoList
 <!--Delete Record Confirmation goes below-->
 <h2>Confirm Deletion</h2>
+<p>@Model.TaskName</p>
 <form method="post" asp-controller="Home" asp-action="Delete">
+    <input type="hidden" asp-for="TaskId" />
+    <button type="submit">Delete</button>
+    <a class="btn btn-light" asp-controller="Home" asp-action="Index">Cancel</a>
 </form>

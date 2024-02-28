@@ -1,4 +1,6 @@
-﻿namespace Mission_08_Group412.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Mission_08_Group412.Models
 {
     public class EFMission08Repository : IMission08Repository
     {
@@ -26,9 +28,32 @@
         public ToDoList GetItem(int id) 
         {
             var itemToEdit = _context.ToDoLists
+                .Include("Category")
                 .Single(x => x.TaskId == id);
 
             return itemToEdit;
+        }
+
+        public void DeleteToDoItem(ToDoList toDoItem)
+        {
+            _context.ToDoLists.Remove(toDoItem);
+            _context.SaveChanges();
+        }
+
+        public List<ToDoList> GetItems_Categories()
+        {
+            List<ToDoList> toDoListItems = _context.ToDoLists.Include("Category").ToList();
+            return toDoListItems;
+        }
+
+        public List<Category> GetCategories()
+        {
+            var categories = _context.Categories
+                .OrderBy(x => x.CategoryName)
+                .ToList();
+
+            return categories;
+
         }
     }
 }

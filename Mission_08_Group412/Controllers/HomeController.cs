@@ -16,7 +16,7 @@ namespace Mission_08_Group412.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var ToDoListInfo = _repo.ToDoLists;
+            var ToDoListInfo = _repo.GetItems_Categories();
 
             return View(ToDoListInfo);
         }
@@ -25,6 +25,8 @@ namespace Mission_08_Group412.Controllers
         [HttpGet]
         public IActionResult Add()
         {
+            ViewBag.Categories = _repo.GetCategories();
+
             return View("Add_Edit_Task",new ToDoList());
         }
 
@@ -42,6 +44,8 @@ namespace Mission_08_Group412.Controllers
         {
             var toDoItemToEdit = _repo.GetItem(id);
 
+            ViewBag.Categories = _repo.GetCategories();
+
             return View("Add_Edit_Task", toDoItemToEdit);
         }
 
@@ -53,11 +57,19 @@ namespace Mission_08_Group412.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var toDoItemToDelete = _repo.GetItem(id);
 
+            return View("DeleteTask", toDoItemToDelete);
+        }
 
-
-
-
-
+        [HttpPost]
+        public IActionResult Delete(ToDoList toDoItem) 
+        {
+            _repo.DeleteToDoItem(toDoItem);
+            return RedirectToAction("Index");
+        }
     }
 }
