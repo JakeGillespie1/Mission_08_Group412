@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<Mission08Context>(options =>
 {
-    options.UseSqlite(builder.Configuration["Connection Strings:Mission08Connection"]);
+    options.UseSqlite(builder.Configuration["ConnectionStrings:Mission08Connection"]);
 });
 
 //Give each request an instance of EFMission08Repository
