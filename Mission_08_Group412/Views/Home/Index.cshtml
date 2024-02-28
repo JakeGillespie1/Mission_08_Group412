@@ -1,8 +1,103 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+        .container {
+            width: 100%;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .col {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        select, input[type="text"], input[type="date"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 @model List<ToDoList>
 <!--Quadrant will go here on the index page-->
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <h2>Important</h2>
+        </div>
+        <div class="col">
+            <h2>Not Important</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h2>Urgent</h2>
+        </div>
+        <div class="col">
+            <h2>Quadrant 1</h2>
+            @foreach (var item in Model.Where(x => x.QuadrantNumber == 1))
+            {
+                <div>
+                    <p>@item.TaskName</p>
+                    <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">Edit</a>
+                    <a class="btn btn-warning" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">Delete</a>
+                </div>
+            }
+        </div>
+        <div class="col">
+            <h2>Quadrant 2</h2>
+            @foreach (var item in Model.Where(x => x.QuadrantNumber == 2))
+            {
+                <div>
+                    <p>@item.TaskName</p>
+                    <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">Edit</a>
+                    <a class="btn btn-warning" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">Delete</a>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h2>Not Urgent</h2>
+        </div>
+        <div class="col">
+            <h2>Quadrant 3</h2>
+            @foreach (var item in Model.Where(x => x.QuadrantNumber == 3))
+            {
+                <div>
+                    <p>@item.TaskName</p>
+                    <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">Edit</a>
+                    <a class="btn btn-warning" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">Delete</a>
+                </div>
+            }
+        </div>
+        <div class="col">
+            <h2>Quadrant 4</h2>
+            @foreach (var item in Model.Where(x => x.QuadrantNumber == 4))
+            {
+                <div>
+                    <p>@item.TaskName</p>
+                    <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">Edit</a>
+                    <a class="btn btn-warning" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">Delete</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
 @foreach (var listitem in Model)
 {
 <div>
