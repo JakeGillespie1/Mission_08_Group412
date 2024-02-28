@@ -28,5 +28,5 @@ public partial class ToDoList
 
     public bool? Completed { get; set; }
 
-   
+
 }

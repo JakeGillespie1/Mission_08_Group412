@@ -11,8 +11,8 @@
 
         public List<ToDoList> ToDoLists => _context.ToDoLists.ToList();
 
-        public void AddToList(ToDoList toDoList) 
-        { 
+        public void AddToList(ToDoList toDoList)
+        {
             _context.Add(toDoList);
             _context.SaveChanges();
         }

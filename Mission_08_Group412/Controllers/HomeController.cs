@@ -21,7 +21,6 @@ namespace Mission_08_Group412.Controllers
             return View(ToDoListInfo);
         }
 
-
         [HttpGet]
         public IActionResult AddTask()
         {
