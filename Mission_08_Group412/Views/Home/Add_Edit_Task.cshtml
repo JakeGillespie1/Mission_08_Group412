@@ -14,10 +14,10 @@
     <input asp-for="TaskName" />
     <br />
     <label asp-for="DueDate">Task Due Date:</label>
-    <input type="date" asp-for="DueDate" />
+    <input type="date" asp-for="DueDate" min="@DateTime.Now.Year" />
     <br />
     <label asp-for="QuadrantNumber">Quadrant Number:</label>
-    <input asp-for="QuadrantNumber" />
+    <input asp-for="QuadrantNumber" max="4" min="1"/>
     <br />
     <label asp-for="CategoryId">Category</label>
     <select asp-for="CategoryId">
@@ -34,6 +34,7 @@
     </select>
     <br />
     <button type="submit">Submit</button>
+    <div asp-validation-summary="All"></div>
 </form>
 </div>
 </div>
