@@ -14,6 +14,8 @@
     font-family: 'montserrat-bold';
     src: url('../fonts/static/montserrat-bold.ttf') format('truetype');
 }
+
+/* color scheme */
 :root {
     --color-royal: #334EAC;     /*fun title font color, deep blue*/
     --color-moon: #E5E1DA;      /*background color probably, whitish*/
@@ -25,16 +27,6 @@
     --color-porcelain: #EDF1F6; /*lightest blue*/
     --color-sky: #BAD6EB;       /*medium light blue*/
 }
-
-/* how to use the colors: */
-.element {
-    background-color: var(--color-royal);
-}
-
-.another-element {
-    color: var(--color-moon);
-}
-
 
 /* nav bar css*/
 body {
@@ -80,20 +72,20 @@ body {
     background-color: var(--color-moon);
 }
 
-    .nav__menu ul li {
-        list-style: none;
+.nav__menu ul li {
+    list-style: none;
         
-    }
+}
 
-        .nav__menu ul li a {
-            text-decoration: none;
-            color: var(--color-midnight);
-            padding: 1rem;
-            display: block;
-            font-family: 'montserrat-regular';
-            font-size: 13px;
+.nav__menu ul li a {
+    text-decoration: none;
+    color: var(--color-midnight);
+    padding: 1rem;
+    display: block;
+    font-family: 'montserrat-regular';
+    font-size: 13px;
 
-        }
+}
 
 .nav__menu li:hover {
     background-color: rgba(255, 255, 255, 0.5);
@@ -119,6 +111,8 @@ body {
     border-radius: 0.625rem;
     transition: all ease-in-out 0.2s;
 }
+
+
 
 /* MEDIA QUERIES */
 
@@ -207,8 +201,7 @@ label {
 }
 
 /* Style for inputs and textareas */
-input,
-textarea, select {
+input,textarea, select {
     width: 100%;
     padding: 10px;
     border: 0.5px solid var(--color-jicama);
@@ -342,20 +335,16 @@ input[type="submit"] {
     border-color: var(--color-midnight);
 }
 
-
-
 .swag-footer {
     font-size: 0.8rem;
     color: var(--color-midnight);
     font-family: montserrat-regular;
 }
 
-    /* Optional: If you want to style the link */
-    .swag-footer a {
-       
-        text-decoration: none;
-        
-    }
+/* Optional: If you want to style the link */
+.swag-footer a {
+    text-decoration: none;    
+}
 
 .task-title h2 {
     font-family: shortly_cometrue_demo;
@@ -389,30 +378,3 @@ input[type="submit"] {
         color: white;
     }
 
-
-/*
-
-    PREMADE CSS. ABOVE ARE THE THINGS I HAVE MADE
-
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}*/
