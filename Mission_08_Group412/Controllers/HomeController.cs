@@ -80,5 +80,14 @@ namespace Mission_08_Group412.Controllers
             _repo.DeleteToDoItem(toDoItem);
             return RedirectToAction("Index");
         }
+
+        // for the history page
+        [HttpGet]
+        public IActionResult History()
+        {
+            var ToDoListInfo = _repo.GetItems_Categories();
+
+            return View(ToDoListInfo);
+        }
     }
 }
