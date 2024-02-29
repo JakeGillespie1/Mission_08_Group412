@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission_08_Group412.Models;
 using System.Diagnostics;
 
@@ -33,9 +34,17 @@ namespace Mission_08_Group412.Controllers
         [HttpPost]
         public IActionResult Add(ToDoList toDoItem)
         {
-            _repo.AddToList(toDoItem);
-
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _repo.AddToList(toDoItem);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Categories = _repo.GetCategories();
+                return View("Add_Edit_Task", toDoItem);
+            }
+                
         }
 
         //Edit an existing record

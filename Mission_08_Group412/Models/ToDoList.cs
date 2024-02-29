@@ -18,7 +18,7 @@ public partial class ToDoList
 
     public string? DueDate { get; set; }
 
-    [Required(ErrorMessage = "Please enter a valid Quadrant Number")]
+    [Required(ErrorMessage = "Please enter a valid Quadrant Number"), Range(1,4)]
     public int QuadrantNumber { get; set; }
 
 
