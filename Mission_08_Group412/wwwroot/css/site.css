@@ -10,9 +10,13 @@
     font-family: 'montserrat-regular';
     src: url('../fonts/static/montserrat-regular.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'montserrat-bold';
+    src: url('../fonts/static/montserrat-bold.ttf') format('truetype');
+}
 :root {
     --color-royal: #334EAC;     /*fun title font color, deep blue*/
-    --color-moon: #F7F2EB;      /*background color probably, whitish*/
+    --color-moon: #E5E1DA;      /*background color probably, whitish*/
     --color-china: #7096D1;     /*light blue*/
     --color-pear: #F2F0DE;      /*green*/
     --color-midnight: #081F5C;  /*darkest blue*/
@@ -57,26 +61,28 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--color-royal);
+    color: var(--color-midnight);
 
 }
 
 .nav__logo {
-    font-size: 2.3rem;
+    font-size: 2.0rem;
     font-family: 'shortly_cometrue_demo';
     margin: auto 1rem;
     text-decoration: none;
+    margin-top: 10px;
 }
 
 .nav__menu ul {
     margin: 0;
     padding: 0;
     display: flex;
-    
+    background-color: var(--color-moon);
 }
 
     .nav__menu ul li {
         list-style: none;
+        
     }
 
         .nav__menu ul li a {
@@ -86,6 +92,7 @@ body {
             display: block;
             font-family: 'montserrat-regular';
             font-size: 13px;
+
         }
 
 .nav__menu li:hover {
@@ -102,6 +109,7 @@ body {
     position: absolute;
     top: 1rem;
     right: 1rem;
+    
 }
 
 .nav__hamburger__line {
@@ -173,13 +181,16 @@ body {
 
 /* STYLING FOR FORM */
 .form-container {
-    max-width: 400px;
+    max-width: 550px;
     margin: 50px auto;
+    margin-top: 15px;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: var(--color-jicama);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: var(--color-royal);
+    font-family: montserrat-regular;
 }
+
 
 /* Style for form groups (labels + inputs) */
 .form-group {
@@ -191,47 +202,192 @@ label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-    font-family: montserrat-regular;
+    font-family: montserrat-bold;
+    font-size: 20px;
 }
 
 /* Style for inputs and textareas */
-input[type="text"],
-input[type="email"],
-textarea {
+input,
+textarea, select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 0.5px solid var(--color-jicama);
     border-radius: 5px;
+    background-color: var(--color-moon);
     box-sizing: border-box; /* Ensure padding and border included in width */
     font-family: montserrat-regular;
+    color: var(--color-midnight);
+    opacity: 0.8;
 }
 
 /* Style for the submit button */
 button[type="submit"] {
-    background-color: #007bff;
+    background-color: var(--color-royal);
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    font-family: montserrat-regular;
+    font-family: montserrat-bold;
+    text-align: center;
 }
 
     /* Change button color on hover */
     button[type="submit"]:hover {
-        background-color: #0056b3;
+        background-color: var(--color-midnight);
     }
 
-/* Style for the form box */
 
+/* quadrant styling */
 
-/* Style for the form container */
-.form-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
+* {
+    box-sizing: border-box;
 }
+
+.container {
+    width: 100%;
+    font-family: montserrat-regular;
+    margin-top: 40px;
+    color: var(--color-royal);
+    background-color: var(--color-jicama);
+    border-radius: 30px;
+
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+    background-color: var(--color-);
+    text-align: right;
+    border-bottom: 2px solid var(--color-moon);
+}
+
+.col {
+    flex: 1;
+    border-right: 2px solid var(--color-moon);
+    padding: 20px;
+}
+
+.urgent-col, .not-urgent-col, h2 {
+    width: auto;
+    flex-grow: 0;
+    font-family: montserrat-bold;
+    font-size: 30px;
+    
+}
+
+label {
+    font-weight: bold;
+
+}
+
+h3 {
+    font-size: 20px;
+    font-family: montserrat-bold;
+    color: var(--color-royal);
+
+}
+
+select, input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.task-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+    .task-container p {
+        margin-right: 10px; /* Add spacing between task name and buttons */
+        display: flex;
+        align-items: center;
+    }
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Add spacing between buttons */
+    align-items: center;
+    margin-left: auto;
+}
+
+.title-format {
+    
+    font-family: shortly_cometrue_demo;
+    margin-top: 20px;
+    text-align: center;
+    color: var(--color-royal);
+    font-size: 20px;
+}
+
+
+/*footer*/
+
+.swag-footer {
+    background-color: transparent;
+    color: white; /* Text color */
+    text-align: center;
+    padding: 20px 0; /* Adjust padding as needed */
+    border-color: var(--color-midnight);
+}
+
+
+
+.swag-footer {
+    font-size: 0.8rem;
+    color: var(--color-midnight);
+    font-family: montserrat-regular;
+}
+
+    /* Optional: If you want to style the link */
+    .swag-footer a {
+       
+        text-decoration: none;
+        
+    }
+
+.task-title h2 {
+    font-family: shortly_cometrue_demo;
+    font-size: 40px;
+    text-align: center;
+    padding-top: 50px;
+    color: var(--color-royal);
+}
+
+
+.btn-delete,
+.btn-edit {
+    background-color: var(--color-midnight);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: montserrat-bold;
+    text-decoration: none;
+}
+
+.btn-edit {
+    background-color: var(--color-sky);
+}
+
+    .btn-delete:hover,
+    .btn-edit:hover {
+        opacity: 0.5;
+        color: white;
+    }
 
 
 /*

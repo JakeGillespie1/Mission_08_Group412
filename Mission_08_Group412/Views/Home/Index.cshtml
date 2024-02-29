@@ -1,96 +1,51 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<style>
-        .container {
-            width: 100%;
-        }
-        .row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        .col {
-            flex: 1;
-            border: 1px solid #ccc;
-            padding: 20px;
-        }
 
-        .urgent-col, .not-urgent-col {
-        width: auto;
-        flex-grow: 0;
-        }
-        label {
-            font-weight: bold;
-        }
-        select, input[type="text"], input[type="date"] {
-            width: 100%;
-            padding: 5px;
-            margin-bottom: 10px;
-        }
-        input[type="submit"] {
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .task-container {
-            display: flex;
-            align-items: center; /* Align items vertically */
-        }
-
-        .task-container p {
-            margin-right: 10px; /* Add spacing between task name and buttons */
-            display: flex;
-            align-items: center;
-        }
-
-        .button-container {
-            display: flex;
-            gap: 10px; /* Add spacing between buttons */
-            align-items: center;
-            margin-left: auto;
-        }
-    </style>
 @model List<ToDoList>
 <!--Quadrant will go here on the index page-->
+
+<div class="title-format">
+    <h1>Welcome to your tasklist. </h1>
+</div>
+
+
 <div class="container">
     <div class="row">
-        <div class="col urgent-col" style="padding-block:auto"><h2>Weight</h2></div>
+        <div class="col urgent-col" style="padding-block:auto"><h3>PRIORITY</h3></div>
         <div class="col">
-            <h2>Important</h2>
+            <h2>IMPORTANT</h2>
         </div>
         <div class="col">
-            <h2>Not Important</h2>
+            <h2>NOT IMPORTANT</h2>
         </div>
     </div>
     <div class="row">
         <div class="col urgent-col" style="padding-left:34px">
-            <h2 style="writing-mode:vertical-rl; text-orientation:sideways; transform:rotate(180deg)">Urgent</h2>
+            <h2 style="writing-mode:vertical-rl; text-orientation:sideways; transform:rotate(180deg)">URGENT</h2>
         </div>
         <div class="col">
-            <h3>Quadrant 1</h3>
+            <h3>quadrant 1</h3>
             @foreach (var item in Model.Where(x => x.QuadrantNumber == 1))
             {
                 <div class="task-container">
                     <p style="font-size:20px">@item.TaskName</p>
                     <div class="button-container">
-                        <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">Edit</a>
-                        <a class="btn btn-warning" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">Delete</a>
+                        <a class="btn-edit" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">EDIT</a>
+                        <a class="btn-delete" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">DELETE</a>
                     </div>
                 </div>
             }
         </div>
         <div class="col">
-            <h3>Quadrant 2</h3>
+            <h3>quadrant 2</h3>
             @foreach (var item in Model.Where(x => x.QuadrantNumber == 2))
             {
                 <div class="task-container">
                     <p style="font-size:20px">@item.TaskName</p>
                     <div class="button-container">
-                        <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">Edit</a>
-                        <a class="btn btn-warning" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">Delete</a>
+                        <a class="btn-edit" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">EDIT</a>
+                        <a class="btn-delete" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">DELETE</a>
                     </div>
                 </div>
             }
@@ -98,30 +53,30 @@
     </div>
     <div class="row">
         <div class="col urgent-col" style="padding-left:34px">
-            <h2 style="writing-mode:vertical-rl; text-orientation:sideways; transform:rotate(180deg)">Not Urgent</h2>
+            <h2 style="writing-mode:vertical-rl; text-orientation:sideways; transform:rotate(180deg)">NOT URGENT</h2>
         </div>
         <div class="col">
-            <h3>Quadrant 3</h3>
+            <h3>quadrant 3</h3>
             @foreach (var item in Model.Where(x => x.QuadrantNumber == 3))
             {
                 <div class="task-container">
                     <p style="font-size:20px">@item.TaskName</p>
                     <div class="button-container">
-                        <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">Edit</a>
-                        <a class="btn btn-warning" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">Delete</a>
+                        <a class="btn-edit" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">EDIT</a>
+                        <a class="btn-delete" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">DELETE</a>
                     </div>
                 </div>
             }
         </div>
         <div class="col">
-            <h3>Quadrant 4</h3>
+            <h3>quadrant 4</h3>
             @foreach (var item in Model.Where(x => x.QuadrantNumber == 4))
             {
                 <div class="task-container">
                     <p style="font-size:20px">@item.TaskName</p>
                     <div class="button-container">
-                        <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">Edit</a>
-                        <a class="btn btn-warning" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">Delete</a>
+                        <a class="btn-edit" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">EDIT</a>
+                        <a class="btn-delete" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">DELETE</a>
                     </div>
                 </div>
             }
