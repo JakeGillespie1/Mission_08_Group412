@@ -5,10 +5,13 @@
 }
 @model ToDoList
 <!--Delete Record Confirmation goes below-->
-<h2>Confirm Deletion</h2>
+
+<div class="title-format">
+<h3>Confirm Deletion</h3>
 <p>@Model.TaskName</p>
 <form method="post" asp-controller="Home" asp-action="Delete">
     <input type="hidden" asp-for="TaskId" />
-    <button type="submit">Delete</button>
-    <a class="btn btn-light" asp-controller="Home" asp-action="Index">Cancel</a>
+    <button class="btn-delete" type="submit">Delete</button>
+    <a class="btn-edit" asp-controller="Home" asp-action="Index">Cancel</a>
 </form>
+</div>

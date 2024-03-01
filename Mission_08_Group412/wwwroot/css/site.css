@@ -315,13 +315,20 @@ input[type="submit"] {
     margin-left: auto;
 }
 
-.title-format {
-    
-    font-family: shortly_cometrue_demo;
+.title-format, h3 {
+    font-family: montserrat-bold;
     margin-top: 20px;
     text-align: center;
     color: var(--color-royal);
     font-size: 20px;
+}
+
+.title-format, h1 {
+    font-family: shortly_cometrue_demo;
+    margin-top: 20px;
+}
+.title-format p {
+    font-family: montserrat-regular;
 }
 
 
