@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ToDoList
+<!--Add task form goes below-->
+<div class="task-title">
+    <h2>Add a task here.</p>
+</div>
+
+
+
+<div class="form-box">
+    <div class="form-container">
+<form method="post">
+    <input type="hidden" asp-for="TaskId" />
+    <label asp-for="TaskName">Task Name:</label>
+    <input asp-for="TaskName" />
+    <br />
+    <label asp-for="DueDate">Task Due Date:</label>
+    <input type="date" asp-for="DueDate" />
+    <br />
+    <label asp-for="QuadrantNumber">Quadrant Number:</label>
+    <input asp-for="QuadrantNumber" />
+    <br />
+    <label asp-for="CategoryId">Category</label>
+    <select asp-for="CategoryId">
+    @foreach (Category category in ViewBag.Categories)
+    {
+        <option value="@category.CategoryId">@category.CategoryName</option>
+    }
+    </select>
+    <br />
+    <label asp-for="Completed">Is this task completed?</label>
+            <select asp-for="Completed">
+        <option value="true">Y</option>
+        <option value="false">N</option>
+    </select>
+    <br />
+    <button type="submit">SUBMIT</button>
+    <div asp-validation-summary="All"></div>
+</form>
+</div>
+</div>

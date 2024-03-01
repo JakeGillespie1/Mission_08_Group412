@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission_08_Group412.Models;
 using System.Diagnostics;
 
@@ -6,27 +7,87 @@ namespace Mission_08_Group412.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private IMission08Repository _repo;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
+        public HomeController(IMission08Repository temp) 
+        { 
+            _repo = temp;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var ToDoListInfo = _repo.GetItems_Categories();
+
+            return View(ToDoListInfo);
         }
 
-        public IActionResult Privacy()
+        //Add a new record
+        [HttpGet]
+        public IActionResult Add()
         {
-            return View();
+            ViewBag.Categories = _repo.GetCategories();
+
+            return View("Add_Edit_Task",new ToDoList());
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult Add(ToDoList toDoItem)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                _repo.AddToList(toDoItem);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Categories = _repo.GetCategories();
+                return View("Add_Edit_Task", toDoItem);
+            }
+                
+        }
+
+        //Edit an existing record
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var toDoItemToEdit = _repo.GetItem(id);
+
+            ViewBag.Categories = _repo.GetCategories();
+
+            return View("Add_Edit_Task", toDoItemToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(ToDoList toDoItem)
+        {
+            _repo.EditToDoList(toDoItem);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var toDoItemToDelete = _repo.GetItem(id);
+
+            return View("DeleteTask", toDoItemToDelete);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(ToDoList toDoItem) 
+        {
+            _repo.DeleteToDoItem(toDoItem);
+            return RedirectToAction("Index");
+        }
+
+        // for the history page
+        [HttpGet]
+        public IActionResult History()
+        {
+            var ToDoListInfo = _repo.GetItems_Categories();
+
+            return View(ToDoListInfo);
         }
     }
 }

@@ -2,7 +2,96 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@model List<ToDoList>
+<!--Quadrant will go here on the index page-->
+
+<div class="title-format">
+    <h1>Welcome to your tasklist. </h1>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col urgent-col" style="padding-block:auto"><h3>PRIORITY</h3></div>
+        <div class="col">
+            <h2>IMPORTANT</h2>
+        </div>
+        <div class="col">
+            <h2>NOT IMPORTANT</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col urgent-col" style="padding-left:34px">
+            <h2 style="writing-mode:vertical-rl; text-orientation:sideways; transform:rotate(180deg)">URGENT</h2>
+        </div>
+        <div class="col">
+            <h3>quadrant 1</h3>
+            @foreach (var item in Model.Where(x => x.QuadrantNumber == 1))
+            {
+                @if (item.Completed == false)
+                {
+                    <div class="task-container">
+                        <p style="font-size:20px">@item.TaskName</p>
+                        <div class="button-container">
+                            <a class="btn-edit" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">EDIT</a>
+                            <a class="btn-delete" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">DELETE</a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div class="col">
+            <h3>quadrant 2</h3>
+            @foreach (var item in Model.Where(x => x.QuadrantNumber == 2))
+            {
+                @if (item.Completed == false)
+                {
+                    <div class="task-container">
+                        <p style="font-size:20px">@item.TaskName</p>
+                        <div class="button-container">
+                            <a class="btn-edit" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">EDIT</a>
+                            <a class="btn-delete" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">DELETE</a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col urgent-col" style="padding-left:34px">
+            <h2 style="writing-mode:vertical-rl; text-orientation:sideways; transform:rotate(180deg)">NOT URGENT</h2>
+        </div>
+        <div class="col">
+            <h3>quadrant 3</h3>
+            @foreach (var item in Model.Where(x => x.QuadrantNumber == 3))
+            {
+                @if (item.Completed == false)
+                {
+                    <div class="task-container">
+                        <p style="font-size:20px">@item.TaskName</p>
+                        <div class="button-container">
+                            <a class="btn-edit" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">EDIT</a>
+                            <a class="btn-delete" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">DELETE</a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div class="col">
+            <h3>quadrant 4</h3>
+            @foreach (var item in Model.Where(x => x.QuadrantNumber == 4))
+            {
+                @if (item.Completed == false)
+                {
+                    <div class="task-container">
+                        <p style="font-size:20px">@item.TaskName</p>
+                        <div class="button-container">
+                            <a class="btn-edit" asp-controller="Home" asp-action="Edit" asp-route-id="@item.TaskId">EDIT</a>
+                            <a class="btn-delete" asp-controller="Home" asp-action="Delete" asp-route-id="@item.TaskId">DELETE</a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
 </div>

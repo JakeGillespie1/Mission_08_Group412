@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<ToDoList>
+<div class="task-title">
+    <h2>Task History</p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>TASK</h2>
+        </div>
+        <div class="col">
+            <h2>DUE DATE</h2>
+        </div>
+        <div class="col">
+            <h2>COMPLETED</h2>
+        </div>
+        <div class="col">
+            <h2>CATEGORY</h2>
+        </div>
+        <div class="col">
+            <h2>ACTIONS</h2>
+        </div>
+    </div>
+
+@foreach (var listitem in Model)
+{
+    <div class="row">
+        <div class="col">
+            <h4>@listitem.TaskName</h4>
+        </div>
+        <div class="col">
+            <h4>@listitem.DueDate</h4>
+        </div>
+        <div class="col">
+            <h4>@listitem.Completed</h4>
+        </div>
+        <div class="col">
+            <h4>@listitem.Category.CategoryName</h4>
+        </div>
+        <div class="col">
+            <a class="btn-edit" asp-controller="Home" asp-action="Edit" asp-route-id="@listitem.TaskId">Edit</a>
+            <a class="btn-delete" asp-controller="Home" asp-action="Delete" asp-route-id="@listitem.TaskId">Delete</a>
+        </div>
+    </div>
+}
+</div>

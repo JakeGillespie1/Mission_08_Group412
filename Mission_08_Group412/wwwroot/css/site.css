@@ -1,22 +1,380 @@
-html {
-  font-size: 14px;
+@font-face {
+    font-family: 'shortly_cometrue_demo';
+    src: url('../fonts/shortly_cometrue_demo.otf') format('opentype');
+}
+@font-face {
+    font-family: 'shortly_cometrue_demo_i';
+    src: url('../fonts/shortly_cometrue_demo_i.otf') format('opentype');
+}
+@font-face {
+    font-family: 'montserrat-regular';
+    src: url('../fonts/static/montserrat-regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'montserrat-bold';
+    src: url('../fonts/static/montserrat-bold.ttf') format('truetype');
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+/* color scheme */
+:root {
+    --color-royal: #334EAC;     /*fun title font color, deep blue*/
+    --color-moon: #E5E1DA;      /*background color probably, whitish*/
+    --color-china: #7096D1;     /*light blue*/
+    --color-pear: #F2F0DE;      /*green*/
+    --color-midnight: #081F5C;  /*darkest blue*/
+    --color-dawn: #D0E3FF;      /*a lighter blue*/
+    --color-jicama: #FFF9F0;    /*almost white*/
+    --color-porcelain: #EDF1F6; /*lightest blue*/
+    --color-sky: #BAD6EB;       /*medium light blue*/
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* nav bar css*/
 body {
-  margin-bottom: 60px;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-moon)
 }
+
+.bg {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: url(mountains.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+.nav {
+    height: 3.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-midnight);
+
+}
+
+.nav__logo {
+    font-size: 2.0rem;
+    font-family: 'shortly_cometrue_demo';
+    margin: auto 1rem;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.nav__menu ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: var(--color-moon);
+}
+
+.nav__menu ul li {
+    list-style: none;
+        
+}
+
+.nav__menu ul li a {
+    text-decoration: none;
+    color: var(--color-midnight);
+    padding: 1rem;
+    display: block;
+    font-family: 'montserrat-regular';
+    font-size: 13px;
+
+}
+
+.nav__menu li:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.nav__hamburger {
+    width: 1.875rem;
+    height: 1.313rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    
+}
+
+.nav__hamburger__line {
+    height: 0.188rem;
+    width: 100%;
+    background-color: var(--color-china);
+    border-radius: 0.625rem;
+    transition: all ease-in-out 0.2s;
+}
+
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 550px) {
+    .nav__hamburger {
+        display: flex;
+    }
+
+    .nav__menu {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.2);
+        top: -10rem;
+        width: 100%;
+        transition: all ease-in-out 0.4s;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav__menu ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 3rem 0 0.6rem;
+    }
+
+        .nav__menu ul li {
+            text-align: center;
+        }
+
+            .nav__menu ul li a {
+                padding: 0.5rem;
+            }
+
+    .nav__menu {
+        z-index: -1;
+    }
+
+        .nav__menu.active {
+            top: 0;
+        }
+
+    .nav__hamburger.active :nth-child(1) {
+        transform: rotate(45deg) translate(0.45rem, 0.1875rem);
+    }
+
+    .nav__hamburger.active :nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav__hamburger.active :nth-child(3) {
+        transform: rotate(-45deg) translate(0.45rem, -0.1875rem);
+    }
+}
+
+
+
+/* STYLING FOR FORM */
+.form-container {
+    max-width: 550px;
+    margin: 50px auto;
+    margin-top: 15px;
+    padding: 20px;
+    background-color: var(--color-jicama);
+    border-radius: 8px;
+    color: var(--color-royal);
+    font-family: montserrat-regular;
+}
+
+
+/* Style for form groups (labels + inputs) */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Style for labels */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: montserrat-bold;
+    font-size: 20px;
+}
+
+/* Style for inputs and textareas */
+input,textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 0.5px solid var(--color-jicama);
+    border-radius: 5px;
+    background-color: var(--color-moon);
+    box-sizing: border-box; /* Ensure padding and border included in width */
+    font-family: montserrat-regular;
+    color: var(--color-midnight);
+    opacity: 0.8;
+}
+
+/* Style for the submit button */
+button[type="submit"] {
+    background-color: var(--color-royal);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: montserrat-bold;
+    text-align: center;
+}
+
+    /* Change button color on hover */
+    button[type="submit"]:hover {
+        background-color: var(--color-midnight);
+    }
+
+
+/* quadrant styling */
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    font-family: montserrat-regular;
+    margin-top: 40px;
+    color: var(--color-royal);
+    background-color: var(--color-jicama);
+    border-radius: 30px;
+
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+    background-color: var(--color-);
+    text-align: right;
+    border-bottom: 2px solid var(--color-moon);
+}
+
+.col {
+    flex: 1;
+    border-right: 2px solid var(--color-moon);
+    padding: 20px;
+}
+
+.urgent-col, .not-urgent-col, h2 {
+    width: auto;
+    flex-grow: 0;
+    font-family: montserrat-bold;
+    font-size: 30px;
+    
+}
+
+label {
+    font-weight: bold;
+
+}
+
+h3 {
+    font-size: 20px;
+    font-family: montserrat-bold;
+    color: var(--color-royal);
+
+}
+
+select, input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.task-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+    .task-container p {
+        margin-right: 10px; /* Add spacing between task name and buttons */
+        display: flex;
+        align-items: center;
+    }
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Add spacing between buttons */
+    align-items: center;
+    margin-left: auto;
+}
+
+.title-format {
+    
+    font-family: shortly_cometrue_demo;
+    margin-top: 20px;
+    text-align: center;
+    color: var(--color-royal);
+    font-size: 20px;
+}
+
+
+/*footer*/
+
+.swag-footer {
+    background-color: transparent;
+    color: white; /* Text color */
+    text-align: center;
+    padding: 20px 0; /* Adjust padding as needed */
+    border-color: var(--color-midnight);
+}
+
+.swag-footer {
+    font-size: 0.8rem;
+    color: var(--color-midnight);
+    font-family: montserrat-regular;
+}
+
+/* Optional: If you want to style the link */
+.swag-footer a {
+    text-decoration: none;    
+}
+
+.task-title h2 {
+    font-family: shortly_cometrue_demo;
+    font-size: 40px;
+    text-align: center;
+    padding-top: 50px;
+    color: var(--color-royal);
+}
+
+
+.btn-delete,
+.btn-edit {
+    background-color: var(--color-midnight);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: montserrat-bold;
+    text-decoration: none;
+}
+
+.btn-edit {
+    background-color: var(--color-sky);
+}
+
+    .btn-delete:hover,
+    .btn-edit:hover {
+        opacity: 0.5;
+        color: white;
+    }
+
